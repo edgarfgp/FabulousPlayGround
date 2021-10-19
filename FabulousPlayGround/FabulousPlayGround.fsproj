@@ -1,22 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
   </PropertyGroup>
-
   <ItemGroup>
     <Compile Include="FabulousPlayGround.fs" />
-  </ItemGroup>
-  
-  <ItemGroup>
+    <PackageReference Include="FSharp.Core" Version="6.0.0" />
+    <PackageReference Include="SwaggerProvider" Version="0.12.0" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.1874" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
     <PackageReference Include="Fabulous.XamarinForms" Version="1.1.0" />
     <PackageReference Include="Fabulous.XamarinForms.LiveUpdate" Version="1.1.0" />
-    <PackageReference Include="FSharp.Core" Version="5.0.0" /> <!-- workaround for VSMac bug https://github.com/mono/monodevelop/pull/5137 --> 
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" /> 
-    <PackageReference Remove="FSharp.Core" /> 
-    <PackageReference Update="FSharp.Core" Version="6.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="SchlenkR.FsHttp" Version="5.1.0"/>
   </ItemGroup>
 </Project>
