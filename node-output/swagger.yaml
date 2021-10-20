@@ -1,0 +1,190 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "title" : "Borrowers API",
+    "description" : "A API to retrieve Borrowers info",
+    "version" : "1.0.0"
+  },
+  "servers" : [ {
+    "url" : "https://virtserver.swaggerhub.com/efgpdev/BorrowersAPI/1.0.0",
+    "description" : "SwaggerHub API Auto Mocking"
+  } ],
+  "paths" : {
+    "/borrowerinfo" : {
+      "get" : {
+        "summary" : "Get Borrowers info for user",
+        "description" : "Get all surveys that a user has been assigned to.",
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Borrower"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      }
+    },
+    "/addresslookup" : {
+      "get" : {
+        "summary" : "Get addresses info for a postcode",
+        "description" : "Get all addresses from a specific post code",
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/AddressLookup"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "AddressLookup" : {
+        "required" : [ "address" ],
+        "properties" : {
+          "address" : {
+            "type" : "array",
+            "example" : [ {
+              "buildingNumber" : "15",
+              "buildingName" : "The Street",
+              "address1" : "Road 1",
+              "address2" : "Road 2",
+              "postCode" : "N19DE",
+              "city" : "London",
+              "moveIn" : "2017-01x"
+            }, {
+              "buildingNumber" : "15",
+              "buildingName" : "The Street",
+              "address1" : "Road 1",
+              "address2" : "Road 2",
+              "postCode" : "N19DE",
+              "city" : "London",
+              "moveIn" : "2017-01x"
+            }, {
+              "buildingNumber" : "17",
+              "buildingName" : "The Street",
+              "address1" : "Road 1",
+              "address2" : "Road 2",
+              "postCode" : "N19DE",
+              "city" : "London",
+              "moveIn" : "2017-01x"
+            }, {
+              "buildingNumber" : "18",
+              "buildingName" : "The Street",
+              "address1" : "Road 1",
+              "address2" : "Road 2",
+              "postCode" : "N19DE",
+              "city" : "London",
+              "moveIn" : "2017-01x"
+            }, {
+              "buildingNumber" : "19",
+              "buildingName" : "The Street",
+              "address1" : "Road 1",
+              "address2" : "Road 2",
+              "postCode" : "N19DE",
+              "city" : "London",
+              "moveIn" : "2017-01x"
+            } ]
+          }
+        }
+      },
+      "Address" : {
+        "required" : [ "address1", "address2", "buildingName", "buildingNumber", "city", "moveIn", "postCode" ],
+        "properties" : {
+          "buildingNumber" : {
+            "type" : "string",
+            "example" : "15"
+          },
+          "buildingName" : {
+            "type" : "string",
+            "example" : "Building Name"
+          },
+          "address1" : {
+            "type" : "string",
+            "example" : "Road 1"
+          },
+          "address2" : {
+            "type" : "string",
+            "example" : "Road 2"
+          },
+          "postCode" : {
+            "type" : "string",
+            "example" : "N19DE"
+          },
+          "city" : {
+            "type" : "string",
+            "example" : "London"
+          },
+          "moveIn" : {
+            "type" : "string",
+            "example" : "2017-01x"
+          }
+        }
+      },
+      "Borrower" : {
+        "required" : [ "address", "birthDate", "dependantCount", "emailsMarketingAllowed", "firstName", "lastName", "maritalStatus", "title" ],
+        "properties" : {
+          "title" : {
+            "type" : "string",
+            "example" : "Mr"
+          },
+          "firstName" : {
+            "type" : "string",
+            "example" : "Edgar"
+          },
+          "lastName" : {
+            "type" : "string",
+            "example" : "Gonzalez"
+          },
+          "maritalStatus" : {
+            "type" : "string",
+            "example" : "Single"
+          },
+          "dependantCount" : {
+            "type" : "integer",
+            "example" : 0
+          },
+          "birthDate" : {
+            "type" : "string",
+            "example" : "1986-06-15"
+          },
+          "emailsMarketingAllowed" : {
+            "type" : "boolean",
+            "example" : true
+          },
+          "address" : {
+            "type" : "array",
+            "example" : [ {
+              "buildingNumber" : "15",
+              "buildingName" : "The Street",
+              "address1" : "Road 1",
+              "address2" : "Road 2",
+              "postCode" : "N19DE",
+              "city" : "London",
+              "moveIn" : "2017-01x"
+            } ],
+            "items" : {
+              "$ref" : "#/components/schemas/Address"
+            }
+          }
+        }
+      }
+    }
+  }
+}
