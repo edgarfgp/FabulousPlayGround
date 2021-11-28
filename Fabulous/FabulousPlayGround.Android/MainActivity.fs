@@ -12,6 +12,7 @@ open Android.Widget
 open Android.OS
 open Xamarin.Forms.Platform.Android
 open FabulousPlayGround
+open Fabulous.XamarinForms
 
 [<Activity (Label = "FabulousPlayGround.Android", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = (ConfigChanges.ScreenSize ||| ConfigChanges.Orientation))>]
 type MainActivity() =
@@ -23,7 +24,9 @@ type MainActivity() =
         base.OnCreate (bundle)
         Xamarin.Essentials.Platform.Init(this, bundle)
         Xamarin.Forms.Forms.Init(this, bundle)
-        this.LoadApplication(App())
+        let prg = App.program
+        let application : Xamarin.Forms.Application = unbox (Program.create prg ())
+        this.LoadApplication(application)
 
     override this.OnRequestPermissionsResult(requestCode: int, permissions: string[], [<GeneratedEnum>] grantResults: Android.Content.PM.Permission[]) =
         Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults)
